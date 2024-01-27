@@ -17,7 +17,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     name: Docker - linux/${{ matrix.arch }}
-    if: github.repository == '${{ env.source_repo }}'
+    if: github.repository == env.source_repo
     strategy:
       matrix:
         arch: [amd64, arm64]
@@ -58,7 +58,7 @@ jobs:
   merge-tags:
     needs: ['build']
     runs-on: ubuntu-latest
-    if: github.repository == '${{ env.source_repo }}' && github.event_name != 'pull_request'
+    if: github.repository == env.source_repo && github.event_name != 'pull_request'
 
     steps:
     - name: Checkout
