@@ -10,14 +10,13 @@ on:
       - published
 
 env:
-  source_repo: Kaiede/healthproxy
   docker_tag: kaiede/healthproxy:${{ github.event_name != 'release' && 'test' || 'latest' }}
 
 jobs:
   build:
     runs-on: ubuntu-latest
     name: Docker - linux/${{ matrix.arch }}
-    if: github.repository == env.source_repo
+    if: github.repository == 'Kaiede/healthproxy'
     strategy:
       matrix:
         arch: [amd64, arm64]
@@ -58,7 +57,7 @@ jobs:
   merge-tags:
     needs: ['build']
     runs-on: ubuntu-latest
-    if: github.repository == env.source_repo && github.event_name != 'pull_request'
+    if: github.repository == 'Kaiede/healthproxy' && github.event_name != 'pull_request'
 
     steps:
     - name: Checkout
