@@ -1,10 +1,10 @@
 # Healthproxy
 
-A very simple container tool meant to expose out an HTTP style health check endpoint for services that expose UDP publically, but TCP internally.
+A very simple container tool meant to expose out an HTTP style health check endpoint for services that expose UDP publically, but have some sort of TCP admin endpoint. The goal is to avoid exposing the admin port to the world, while sitll being able to use it to monitor server health.
 
-Example would be game servers like Ark, Astroneer, Palworld, etc. These provide RCON functionality over TCP, but it's not recommended to expose these ports openly. But you might want to use something like Uptime Robot to check uptime of the game server. 
+Game servers that support RCON are good examples, such as Ark, Astroneer, Palworld, etc. These provide RCON functionality over TCP, and in principle you could use this port with a tool like Uptime Robot or Uptime Kuma. However, exposing this unencrypted admin port isn't ideal and opens up many risks.
 
-It's recommended to hide these behind some sort of reverse proxy like nginx proxy manager so that multiple services can be checked independently.
+It's highly recommended to hide these behind some sort of reverse proxy like nginx proxy manager so that multiple services can be checked independently.
 
 ## Example Docker Compose
 
