@@ -1,3 +1,9 @@
+[![Docker CI](https://github.com/Kaiede/healthproxy/actions/workflows/docker.yml/badge.svg)](https://github.com/Kaiede/healthproxy/actions/workflows/docker.yml)
+[![Docker Pulls](https://img.shields.io/docker/pulls/kaiede/healthproxy.svg)](https://hub.docker.com/r/kaiede/healthproxy)
+[![GitHub Issues](https://img.shields.io/github/issues-raw/kaiede/healthproxy.svg)](https://github.com/kaiede/healthproxy/issues)
+
+[![MIT license](http://img.shields.io/badge/License-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
+
 # Healthproxy
 
 A very simple container tool meant to expose out an HTTP style health check endpoint for services that expose UDP publically, but have some sort of TCP admin endpoint. The goal is to avoid exposing the admin port to the world, while sitll being able to use it to monitor server health.
